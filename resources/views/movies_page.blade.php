@@ -1,3 +1,9 @@
+<header id="movies-header">
+    <h1>Filmes em Cartaz</h1>
+    <button ><a href="{{ route('movies.create') }}">Registrar Filme</a></button>
+</header>
+
+<section id="movies-section">
 @foreach ($movies as $movie)
     <div id="movie">
         <img src="{{ $movie->image }}" alt="{{ $movie->title }}">
@@ -17,9 +23,35 @@
         </div>
     </div>
 @endforeach
-
+</section>
 
 <style>
+    #movies-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: #333;
+        color: white;
+        font-family: Arial, sans-serif;
+    }
+    #movies-header h1 {
+        margin: 0;
+    }
+    #movies-header button {
+        padding: 10px 20px;
+        background-color: #ffb350;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    #movies-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
     #movie {
         display: flex;
         flex-direction: column;
@@ -31,6 +63,7 @@
         max-width: 300px;
         height: auto;
     }
+
 
     #movie img {
         width: 200px;
