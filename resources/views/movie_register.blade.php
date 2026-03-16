@@ -7,6 +7,10 @@
             <input type="text" id="title" name="title" required>
         </div>
         <div>
+            <label for="image">Imagem:</label>
+            <input type="text" id="image" name="image" required>
+        </div>
+        <div>
             <label for="description">Descrição:</label>
             <textarea id="description" name="description" required></textarea>
         </div>
@@ -27,6 +31,7 @@
             <input type="number" id="rating" name="rating" min="0" max="10" step="0.1" required>
         </div>
         <button type="submit">Registrar</button>
+        
     </form>
 </div>
 
@@ -65,4 +70,5 @@
     form button:hover {
         background-color: #0056b3;
     }
+
 </style>

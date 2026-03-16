@@ -22,6 +22,7 @@ class MoviesController extends Controller
     {
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
+            'image' => 'required|string|max:255',
             'description' => 'required|string',
             'release_date' => 'required|date',
             'director' => 'required|string|max:255',
@@ -29,6 +30,13 @@ class MoviesController extends Controller
             'rating' => 'nullable|numeric|min:0|max:10',
         ]);
         Movies::create($validatedData);
+        return redirect()->route('movies.index');
+    }
+    public function destroy($id)
+    {
+        $movie = Movies::findOrFail($id);
+        $movie->delete();
+
         return redirect()->route('movies.index');
     }
 }

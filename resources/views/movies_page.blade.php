@@ -1,6 +1,6 @@
 @foreach ($movies as $movie)
     <div id="movie">
-        <img src="" alt="">
+        <img src="{{ $movie->image }}" alt="{{ $movie->title }}">
         <h1>{{ $movie->title }}</h1>
         <p id='description'>{{ $movie->description }}</p>
         <div id="movie-info">
@@ -8,6 +8,12 @@
             <span>{{ $movie->release_date }}</span>
             <span>{{ $movie->genre }}</span>
             <span>{{ $movie->rating }}</span>
+            <form action="{{ route('movies.destroy', $movie->id) }}" method="POST" style="display: inline;">
+                @csrf
+                @method('DELETE')
+                <button type="submit" id="delete" name="delete" >Deletar</button>
+            </form>
+            <button id="get_ticket" name="get_ticket" >Garantir Ingresso</button>
         </div>
     </div>
 @endforeach
@@ -51,5 +57,16 @@
 
     #movie #movie-info span {
         font-size: 14px;
+    }
+    #get_ticket {
+        padding: 10px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    #get_ticket:hover {
+        background-color: #218838;
     }
 </style>

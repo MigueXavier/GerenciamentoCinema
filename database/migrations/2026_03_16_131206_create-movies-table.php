@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('description');
             $table->date('release_date');
             $table->string('director');
+            $table->string('image');
             $table->string('genre');
             $table->float('rating')->nullable();
             $table->integer('available_tickets')->default(80);
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+       
     }
 };
