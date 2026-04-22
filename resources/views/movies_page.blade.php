@@ -14,12 +14,15 @@
             <span>{{ $movie->release_date }}</span>
             <span>{{ $movie->genre }}</span>
             <span>{{ $movie->rating }}</span>
+            <span>Ingressos Disponíveis: {{ $movie->available_tickets }}</span>
             <form action="{{ route('movies.destroy', $movie->id) }}" method="POST" style="display: inline;">
                 @csrf
                 @method('DELETE')
                 <button type="submit" id="delete" name="delete" >Deletar</button>
             </form>
-            <button id="get_ticket" name="get_ticket" >Garantir Ingresso</button>
+            
+           <button onclick="window.location.href='{{route('tickets.create', ['movie_id' => $movie->id])}}'">Garantir Ingresso</button>
+         
         </div>
     </div>
 @endforeach

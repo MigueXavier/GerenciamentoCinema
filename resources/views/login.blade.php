@@ -1,0 +1,49 @@
+
+<html>
+    <head>
+        <title>
+            Login
+        </title>
+    </head>
+    <body>
+        <h1>Login</h1>
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
+            <div>
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Entrar</button>
+        </form>
+    </body>
+</html>
+<style>
+    form {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    form div {
+        margin-bottom: 15px;
+    }
+
+    form label {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    form input {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+    }

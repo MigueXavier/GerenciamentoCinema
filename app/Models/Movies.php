@@ -15,4 +15,8 @@ class Movies extends Model
         'genre',
         'rating'
     ];
+    public function tickets()
+    {
+        return $this->hasMany(Tickets::class);
+    }
 }

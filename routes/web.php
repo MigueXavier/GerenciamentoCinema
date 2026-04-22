@@ -1,15 +1,24 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MoviesController;
+use App\Http\Controllers\TicketsController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('movies', 'App\Http\Controllers\MoviesController');
 
-Route::get('/movies', [App\Http\Controllers\MoviesController::class, 'index'])->name('movies.index');
-Route::get('/movies/create', [App\Http\Controllers\MoviesController::class, 'create'])->name('movies.create');
-Route::post('/movies', [App\Http\Controllers\MoviesController::class, 'store'])->name('movies.store');
-Route::get('/movies/{id}', [App\Http\Controllers\MoviesController::class, 'show'])->name('movies.show');
-Route::delete('/movies/{id}', [App\Http\Controllers\MoviesController::class, 'destroy'])->name('movies.destroy');
+Route::resource('movies', MoviesController::class);
+
+//Rotas para ingressos
+Route::get('/tickets', [TicketsController::class, 'index'])->name('tickets.index');
+Route::post('/tickets', [TicketsController::class, 'store'])->name('tickets.store');
+Route::get('/tickets/{movie_id}', [TicketsController::class, 'create'])->name('tickets.create');
+
+
+//Rotas de usuario
+Route::resource('users', UserController::class);
+ 
+//Refaça as rotas de ingresso e a controller de ingresso.
